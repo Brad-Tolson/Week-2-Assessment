@@ -56,13 +56,17 @@ console.log(summedPrice)
 */
 
 //CODE HERE
-// let tax = 1.06
-// let couponValue = 3
-// const calcFinalPrice = cart.map((cartTotal, couponValue, tax) => {
-//     return ((cartTotal.price * tax) - couponValue)
-// }) 
 
-// console.log(calcFinalPrice)
+function calcFinalPrice(cartTotal, couponValue, tax) {
+    const taxAmount = cartTotal * tax;
+    return cartTotal + taxAmount - couponValue;
+}
+
+const cartTotal = summedPrice;
+const couponValue = 5;
+const tax = 0.06;
+
+console.log(parseFloat((calcFinalPrice(cartTotal, couponValue, tax)).toFixed(2)))
 
 //////////////////PROBLEM 3////////////////////
 /*  
@@ -99,7 +103,7 @@ the customer has paid(so they can leave)
 
 let customer = {
     order: 'pizza',
-    price: '10',
+    price: 10,
     location: '2-1-c',
     paid : true
 }

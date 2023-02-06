@@ -43,7 +43,7 @@ class Employee {
 */
 
 //CODE HERE
-let empOne = new Employee('Jess', 'weekday mornings & weekday afternoons')
+let empOne = new Employee('Jess', 'weekday mornings, weekday afternoons')
 console.log(empOne)
 /*
     Call the `getSchedule` method on the
@@ -100,15 +100,14 @@ console.log(empTwo)
 class Manager extends Employee {
     constructor(name, shifts, employees) {
         super(name, shifts)
-        this.employees = employees
+        this.employees = employees.split(', ')
     }
     getEmployees() {
-        console.log(`${this.name} manages ${this.employees}.`)
+        console.log(`${this.name} manages ${this.employees.join(', ')}.`)
 }
-    addEmployee() {
-        this.employees.push()
+    addEmployee(emp) {
+        this.employees.push(emp)
     }
-
 }
 
 
@@ -126,14 +125,14 @@ class Manager extends Employee {
 
 //CODE HERE
 
-let Winston = new Manager('Winston', 'weekday morning, weekday afternoons', 'Cece and Schmidt')
+const manager = new Manager('Winston', 'weekday morning, weekday afternoons', 'Cece and Schmidt')
 /*
     Call the `getEmployees` method on the
     `manager` object.  
 */
-Winston.getEmployees()
-//CODE HERE
 
+//CODE HERE
+manager.getEmployees()
 /*
     Call the `addEmployee` method on the 
     `manager` object passing in the string 
@@ -141,7 +140,7 @@ Winston.getEmployees()
 */
 
 //CODE HERE 
-addEmployee('Coach')
+manager.addEmployee('Coach')
 /*
     Call the `getEmployees` method on the
     `manager` object again to confirm 
@@ -149,4 +148,4 @@ addEmployee('Coach')
 */
 
 //CODE HERE
-Winston.getEmployees()
+manager.getEmployees()

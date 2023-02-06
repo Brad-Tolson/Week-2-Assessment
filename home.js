@@ -56,14 +56,15 @@ const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206]
 //CODE HERE
 
 let canWeDeliver = (zipCode) => {
-    if(zipCode = deliveryAreaZipCodes.arr) {
-    "You're in our delivery zone!";
-    } else {
-    "Sorry, we can't deliver to that address"
+    for (let i = 0; i < deliveryAreaZipCodes.length; i++) {
+        if (deliveryAreaZipCodes[i] === zipCode) {
+            console.log("You're in our delivery zone!")
+            return 
+        }  
+    } 
+    console.log("Sorry, we can't deliver to that address")
 }
-}
-
-console.log(canWeDeliver(85205))   
+console.log(canWeDeliver(85216))   
     
 
 /* 
@@ -84,14 +85,17 @@ console.log(canWeDeliver(85205))
 */
 
 // CODE HERE
-const canWeDeliverTwo = (arr, name, callback) => {
-    if (arr.includes(deliveryAreaZipCodes) === true) {
-      callback(true)
-    } else {
-      callback(false)
+const canWeDeliverTwo = (zipCode) => {
+    for (let i = 0; i < deliveryAreaZipCodes.length; i++) {
+      if (deliveryAreaZipCodes[i] === zipCode) {
+        return `You're in our delivery zone!`;
+      }
     }
+    return `Sorry, we can't deliver to that address`;
   }
-// console.log(canWeDeliverTwo(85205))
+
+
+console.log(canWeDeliverTwo(46041)) 
 //////////////////PROBLEM 3////////////////////
 /* 
     Below is an array of objects that have some
@@ -127,9 +131,9 @@ const deals = [
 
 //CODE HERE
 
-let deals2 = deals.replace('15', '10')
+deals[0].title = deals[0].title.replace('15', '10')
 
-
+console.log(deals)
 /*
     The restaurant is going to continue its
     family deal for another month. 
@@ -144,4 +148,4 @@ let deals2 = deals.replace('15', '10')
 */
 
 //CODE HERE
-let deals3 = deals.replace('March', 'April')
+deals[1].desc = deals[1].desc.trim().replace('March', 'April')

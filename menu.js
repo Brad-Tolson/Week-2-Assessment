@@ -31,7 +31,7 @@
 */
 
 //CODE HERE
-let pizza = {
+const pizza = {
     name: "Works",
     price: 15,
     category: "Special",
@@ -61,7 +61,7 @@ console.log(pizza.popularity)
 
 //CODE HERE
 
-console.log(pizza.tags[2])
+console.log(pizza.tags[1])
 /*
     Third, destructure the price off of the
     pizza object.
@@ -71,7 +71,8 @@ console.log(pizza.tags[2])
 
 //CODE HERE
 
-
+const {price} = pizza
+console.log(price)
 /*
     Fourth, and last, destructure the category
     property.
@@ -80,6 +81,8 @@ console.log(pizza.tags[2])
 */
 
 //CODE HERE
+const {category} = pizza
+console.log(category)
 
 
 //////////////////PROBLEM 3////////////////////
@@ -96,13 +99,46 @@ console.log(pizza.tags[2])
 
 //CODE HERE
 
-const foodArr = {
-name: "Pep",
-price: 10,
-category: "Pizza",
-popularity: 1,
-rating: 9,
-tags: ['cheese', 'pep']}
+const foodArr = [{
+    name: "Pep",
+    price: 10,
+    category: "Pizza",
+    popularity: 1,
+    rating: 10,
+    tags: ['cheese', 'pep', 'sauce']
+},{
+    name: "Cheese",
+    price: 8,
+    category: "Pizza",
+    popularity: 2,
+    rating: 9,
+    tags: ['cheese', 'sauce']
+},{
+    name: "Sausage",
+    price: 11,
+    category: "Pizza",
+    popularity: 3,
+    rating: 8,
+    tags: ['cheese', 'sausage', 'sauce']
+}, {
+    name: "Veggie",
+    price: 9,
+    category: "Pizza",
+    popularity: 5,
+    rating: 7,
+    tags: ['cheese', 'veggies', 'sauce']
+},{
+    name: "Works",
+    price: 14,
+    category: "Pizza",
+    popularity: 4,
+    rating: 8.5,
+    tags: ['cheese', 'pep', 'sausage', 'veggies', 'sauce']}
+]
+
+
+
+
 
 //////////////////PROBLEM 4////////////////////
 /* 
@@ -118,7 +154,8 @@ tags: ['cheese', 'pep']}
 
 //CODE HERE
 
-const filteredFood = foodArr.filter()
+const filteredFood = foodArr.filter(food => food.tags.includes("sausage"));
+
 
 
 
@@ -162,7 +199,17 @@ const filteredFood = foodArr.filter()
 */
 
 //CODE HERE
-
+const filterByProperty = (property, number, type) => {
+    let filtered = [];
+    filtered = foodArr.filter(food => {
+      if (type === "above") {
+        return food[property] > number;
+      } else {
+        return food[property] < number;
+      }
+    });
+    return filtered;
+  }
 
 /*
     Invoke the `filterByProperty` function passing
@@ -172,3 +219,5 @@ const filteredFood = foodArr.filter()
 */
 
 //CODE HERE
+const filtered = filterByProperty("price", 10, "below");
+console.log(filtered)
